@@ -136,7 +136,7 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
     //Logout Button
     @IBAction func logout(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popToRootViewController(animated: true)    //dismiss(animated: true, completion: nil)
     }
     
   

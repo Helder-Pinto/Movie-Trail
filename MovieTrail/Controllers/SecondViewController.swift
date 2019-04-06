@@ -32,7 +32,6 @@ class SecondViewController: UIViewController {
         
         movieTitleField.text = movieTitle
         movieOverview.text = movieOverviewText
-        print(movieOverviewText)
         miniPoster()
        
         }
