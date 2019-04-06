@@ -11,7 +11,7 @@
 		18300C58224ED51100138D96 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18300C57224ED51100138D96 /* SecondViewController.swift */; };
 		18523E1122502DB500D37710 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18523E1022502DB500D37710 /* SearchViewController.swift */; };
 		18DE80622258D48B004C2448 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE80612258D48B004C2448 /* MyListViewController.swift */; };
-		18E0B6A5224FA6D20026B845 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0B6A4224FA6D20026B845 /* MainTabController.swift */; };
+		18DE80682258F2FF004C2448 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */; };
 		18E0B6A7224FA7C40026B845 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E0B6A6224FA7C40026B845 /* LoginViewController.swift */; };
 		446E5C514F4AC2543D7DF8BE /* Pods_MovieTrail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225F0B1391ABBB6328B41BC /* Pods_MovieTrail.framework */; };
 		E7AAD7AE224E5238009F331B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AAD7AD224E5238009F331B /* AppDelegate.swift */; };
@@ -46,7 +46,7 @@
 		18300C57224ED51100138D96 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		18523E1022502DB500D37710 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		18DE80612258D48B004C2448 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
-		18E0B6A4224FA6D20026B845 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		18DE80672258F2FF004C2448 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		18E0B6A6224FA7C40026B845 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		21676C9D0F1273ED4D5E6FFA /* Pods_MovieTrailTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieTrailTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		216F69E17A6601C5A5B3E441 /* Pods-MovieTrail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieTrail.debug.xcconfig"; path = "Target Support Files/Pods-MovieTrail/Pods-MovieTrail.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,8 +108,8 @@
 				18300C57224ED51100138D96 /* SecondViewController.swift */,
 				18E0B6A6224FA7C40026B845 /* LoginViewController.swift */,
 				18523E1022502DB500D37710 /* SearchViewController.swift */,
-				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
 				18DE80612258D48B004C2448 /* MyListViewController.swift */,
+				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,6 +129,14 @@
 				E7AAD7B6224E5242009F331B /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		18DE80652258EAF5004C2448 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		3D13CA8EFD71C0875681D833 /* Frameworks */ = {
@@ -168,10 +176,10 @@
 			children = (
 				E7AAD7AD224E5238009F331B /* AppDelegate.swift */,
 				1844BFB92258BB31000889B2 /* Controllers */,
+				18DE80652258EAF5004C2448 /* DataModel */,
 				1844BFBA2258BB6B000889B2 /* Views */,
 				1844BFBB2258BB88000889B2 /* Supporting files */,
 				E7AAD7B9224E5242009F331B /* Info.plist */,
-				18E0B6A4224FA6D20026B845 /* MainTabController.swift */,
 			);
 			path = MovieTrail;
 			sourceTree = "<group>";
@@ -439,11 +447,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DE80682258F2FF004C2448 /* DataModel.xcdatamodeld in Sources */,
 				18E0B6A7224FA7C40026B845 /* LoginViewController.swift in Sources */,
 				18523E1122502DB500D37710 /* SearchViewController.swift in Sources */,
 				18300C58224ED51100138D96 /* SecondViewController.swift in Sources */,
 				E7AAD7B0224E5238009F331B /* ViewController.swift in Sources */,
-				18E0B6A5224FA6D20026B845 /* MainTabController.swift in Sources */,
 				E7AAD7DE224E7AF1009F331B /* DataCollectionViewCell.swift in Sources */,
 				18DE80622258D48B004C2448 /* MyListViewController.swift in Sources */,
 				E7AAD7AE224E5238009F331B /* AppDelegate.swift in Sources */,
@@ -781,6 +789,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				18DE80672258F2FF004C2448 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 18DE80672258F2FF004C2448 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E7AAD7A2224E5238009F331B /* Project object */;
 }
