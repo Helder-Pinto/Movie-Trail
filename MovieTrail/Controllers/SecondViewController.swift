@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-
+import Alamofire
 
 class SecondViewController: UIViewController {
     
@@ -17,6 +16,7 @@ class SecondViewController: UIViewController {
    
     @IBOutlet weak var movieTitleField: UILabel!
     @IBOutlet weak var moviePosterField: UIImageView!
+    
     @IBOutlet weak var movieOverview: UITextView!
     @IBOutlet weak var movieAverage: UILabel!
     
@@ -24,6 +24,7 @@ class SecondViewController: UIViewController {
     var movieTitle: String = ""
     var posterImage: UIImage!
     var movieOverviewText: String = ""
+    var movieFotoUrl: String = ""
     //var movieRatings: String = ""
     
     override func viewDidLoad() {
@@ -31,29 +32,26 @@ class SecondViewController: UIViewController {
         
         movieTitleField.text = movieTitle
         movieOverview.text = movieOverviewText
-        moviePosterField.image = posterImage
-        
-        //movieAverage.text = movieRatings
-        
-      
-    }
+        print(movieOverviewText)
+        miniPoster()
+       
+        }
     
     @IBAction func addFavsButton(_ sender: Any) {
         
-        navigateToTableView()
-        
-        
     }
     
-    private func navigateToTableView (){
-        
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        guard let tableVC = mainStoryboard.instantiateViewController(withIdentifier: "FavoritesViewController") as? FavoritesViewController else {
-            return
+    
+    
+    func miniPoster (){
+        Alamofire.request(movieFotoUrl).responseImage(completionHandler: {
+            (response) in
+            if let image = response.result.value {
+                let size = CGSize(width: 140, height: 200)
+                let scaledImage = image.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 3.0)
+                DispatchQueue.main.async { self.moviePosterField.image = scaledImage
+                }
+            }
+        })
         }
-        present(tableVC, animated: true, completion: nil)
-    }
-    
-  
 }

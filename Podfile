@@ -10,8 +10,7 @@ target 'MovieTrail' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'SVProgressHUD'
-    pod 'YoutubePlayer-in-WKWebView'
-    pod 'youtube-ios-player-helper'
+
     pod 'AlamofireImage', '~> 3.5'
  
 

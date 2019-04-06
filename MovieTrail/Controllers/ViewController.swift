@@ -20,9 +20,6 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
   
     var movieData = [[String: AnyObject]]()
     
-    
-    
-    
     //IBoutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -32,32 +29,29 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         collectionView.dataSource = self
         collectionView.delegate = self
         getMovieData(url: MOVIE_URL)
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+     
         layout.minimumInteritemSpacing = 5
-        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20)/3, height: (self.collectionView.frame.size.height)/4)
+        layout.itemSize = CGSize(width: (collectionView.frame.size.width - 20)/3, height: (collectionView.frame.size.height)/4)
         
     }
     
-    
-    
-    //Networking
+    //MARK: Networking
     
   func getMovieData(url: String){
         
         Alamofire.request(url, method: .get).responseJSON {
          response in
             if response.result.isSuccess {
-               // print("Got the movie's data")
                 
                 let moviesJSON : JSON = JSON(response.result.value!)
                 
                 if let da = moviesJSON["results"].arrayObject{
                     self.movieData = da as! [[String : AnyObject]]
                 }
-                if self.movieData.count > 0 {
+               
                     self.collectionView?.reloadData()
-                }
+                
                 
             }
             else {
@@ -67,8 +61,8 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         }
     }
     
-
-
+    //MARK: Collection View
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
         return movieData.count
@@ -79,9 +73,9 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         
         let iP = movieData [indexPath.row]
         cell?.label.text = iP["title"] as? String
-        //let imageUrl = "https://image.tmdb.org/t/p/w200" + (iP["poster_path"] as! String)
         
-        //get images
+        
+        //get images from url
        
         if let imageUrl = iP["poster_path"] as? String {
             
@@ -95,15 +89,13 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
                         cell?.img.image = scaledImage
                         
                     }
+                  }
                 }
-                }
-            )
-        }
+              )
+            }
         
         return cell!
     }
-    
-    
     
     //perform segue and send data to video section
 
@@ -111,26 +103,12 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
+        let iP = movieData[indexPath.row]
+        secondVC?.movieTitle = iP["title"] as! String
+        secondVC?.movieOverviewText = iP["overview"] as! String
         
-        secondVC?.movieTitle = movieData[indexPath.row]["title"] as! String
-        secondVC?.movieOverviewText = movieData[indexPath.row]["overview"] as! String
-        //>>>>>   secondVC?.movieRatings = "\(movieData[indexPath.row]["vote_average"] as! Int)"
-        
-        
-        //send poster
-        /*let fotoUrl = movieData[indexPath.row]["poster_path"] as? String
-        Alamofire.request("https://image.tmdb.org/t/p/w200" + fotoUrl!, method: .get).responseImage {
-            response in
-            guard let image = response.result.value else {
-                return
-            }
-            secondVC?.posterImage = image
-            } */
-       
-        print( "https://image.tmdb.org/t/p/w200" + (movieData[indexPath.row]["poster_path"] as! String))
-        
-        
-        
+        secondVC?.movieFotoUrl = "https://image.tmdb.org/t/p/w200" + (iP["poster_path"] as! String)
+    
         self.navigationController?.pushViewController(secondVC!, animated: true)
             
     }
@@ -145,14 +123,11 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         }
     }
     
-    
-    
-    
-    //////send seach back
+    //MARK: Search Movie Results
     func dataReceived(data: String) {
         
         let movieSearch = data
-        print(movieSearch)
+        
         let movieSearchNoSpace = movieSearch.replacingOccurrences(of: " ", with: "%20")
         getMovieData(url: "https://api.themoviedb.org/3/search/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&query=\(movieSearchNoSpace)&page=1&include_adult=false&fbclid=IwAR1IStRWgwiRpnbkIbOl7KfqZTamu3slssZ1ezDgJAYY1VDDWkisweeYsBE")
         self.navigationController?.popViewController(animated: true)
