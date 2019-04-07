@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol CanReceive {
     func dataReceived(data: String)
 }

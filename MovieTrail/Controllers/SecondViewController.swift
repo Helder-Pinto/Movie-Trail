@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import CoreData
 
 class SecondViewController: UIViewController {
     
@@ -19,6 +20,9 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var movieOverview: UITextView!
     @IBOutlet weak var movieAverage: UILabel!
+    
+    var myMoviesArray2 = [Item]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     var movieTitle: String = ""
@@ -35,10 +39,7 @@ class SecondViewController: UIViewController {
         miniPoster()
        
         }
-    
-    @IBAction func addFavsButton(_ sender: Any) {
-        
-    }
+
     
     
     
@@ -53,4 +54,45 @@ class SecondViewController: UIViewController {
             }
         })
         }
+    
+    
+    //MARK prepare and send data to mylist
+    
+    
+    @IBAction func addFavsButton(_ sender: Any) {
+        
+        let newItem = Item(context: self.context)
+        
+        newItem.title = movieTitle
+        newItem.watched = false
+        
+        //myMoviesArray2.append(newItem)
+        
+       // func saveItems(){
+            
+            do{
+                try context.save()
+            } catch{
+                print("Erro saving context \(error)")
+                
+            }
+            
+            
+      //  }
+        
+       // performSegue(withIdentifier: "goToList", sender: self)
+        
+        
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToList" {
+//
+//            let myListVC = segue.destination as! MyListViewController
+//
+//
+//
+//        }
+//
+//    }
 }
