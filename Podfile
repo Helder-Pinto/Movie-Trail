@@ -12,6 +12,7 @@ target 'MovieTrail' do
     pod 'SVProgressHUD'
 
     pod 'AlamofireImage', '~> 3.5'
+    pod 'SwipeCellKit'
  
 
   target 'MovieTrailTests' do

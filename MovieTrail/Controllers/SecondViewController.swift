@@ -21,7 +21,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var movieOverview: UITextView!
     @IBOutlet weak var movieAverage: UILabel!
     
-    var myMoviesArray2 = [Item]()
+    //var myMoviesArray2 = [Item]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
@@ -49,7 +49,9 @@ class SecondViewController: UIViewController {
             if let image = response.result.value {
                 let size = CGSize(width: 140, height: 200)
                 let scaledImage = image.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 3.0)
-                DispatchQueue.main.async { self.moviePosterField.image = scaledImage
+                DispatchQueue.main.async {
+                    self.moviePosterField.image = scaledImage
+                    print(scaledImage)
                 }
             }
         })
@@ -65,6 +67,8 @@ class SecondViewController: UIViewController {
         
         newItem.title = movieTitle
         newItem.watched = false
+      //  newItem.posterUrl = movieFotoUrl
+        
         
         //myMoviesArray2.append(newItem)
         
