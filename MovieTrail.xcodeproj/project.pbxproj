@@ -109,7 +109,6 @@
 				18300C57224ED51100138D96 /* SecondViewController.swift */,
 				18523E1022502DB500D37710 /* SearchViewController.swift */,
 				18DE80612258D48B004C2448 /* MyListViewController.swift */,
-				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,6 +133,7 @@
 		18DE80652258EAF5004C2448 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
 				18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */,
 			);
 			path = DataModel;

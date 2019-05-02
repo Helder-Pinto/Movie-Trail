@@ -61,7 +61,14 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         }
     }
     
+    
+    
     //MARK: Collection View
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+        return headerView
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
@@ -133,15 +140,11 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         self.navigationController?.popViewController(animated: true)
     }
     
-    //Logout Button
-    @IBAction func logout(_ sender: Any) {
-        
-        self.navigationController?.popToRootViewController(animated: true)    //dismiss(animated: true, completion: nil)
-    }
-    
+    // Add Unwind here
+    @IBAction func unwindLocationCancel(segue:UIStoryboardSegue) {}
+}
   
 
-}
 
 
 
