@@ -40,8 +40,7 @@ class SecondViewController: UIViewController {
        
         }
 
-    
-    
+
     
     func miniPoster (){
         Alamofire.request(movieFotoUrl).responseImage(completionHandler: {
@@ -51,15 +50,12 @@ class SecondViewController: UIViewController {
                 let scaledImage = image.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 3.0)
                 DispatchQueue.main.async {
                     self.moviePosterField.image = scaledImage
-                    print(scaledImage)
+                    //print(scaledImage)
                 }
             }
         })
         }
-    
-    
     //MARK prepare and send data to mylist
-    
     
     @IBAction func addFavsButton(_ sender: Any) {
         
@@ -81,7 +77,12 @@ class SecondViewController: UIViewController {
                 
             }
             
-            
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "myListVC") as! MyListViewController
+        
+       
+        
+        self.present(vc, animated: true, completion: nil)
+        
       //  }
         
        // performSegue(withIdentifier: "goToList", sender: self)
