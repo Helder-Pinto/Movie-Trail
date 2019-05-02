@@ -298,11 +298,37 @@
         <!--Categories-->
         <scene sceneID="Ab2-3s-wTm">
             <objects>
-                <viewController id="DBU-J0-ckz" sceneMemberID="viewController">
+                <viewController id="DBU-J0-ckz" customClass="GenreViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="beq-eL-nwj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XMy-Au-IkM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genreCell" id="rOs-uI-Y6e">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rOs-uI-Y6e" id="WZd-nk-Y6Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DBU-J0-ckz" id="Ivs-ZO-Byw"/>
+                                    <outlet property="delegate" destination="DBU-J0-ckz" id="EEw-A6-asK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XMy-Au-IkM" firstAttribute="leading" secondItem="C2R-hq-MZ4" secondAttribute="leading" id="7ul-Jm-avg"/>
+                            <constraint firstAttribute="bottom" secondItem="XMy-Au-IkM" secondAttribute="bottom" id="Aa4-ve-UoW"/>
+                            <constraint firstItem="XMy-Au-IkM" firstAttribute="trailing" secondItem="C2R-hq-MZ4" secondAttribute="trailing" id="Qki-xX-C9T"/>
+                            <constraint firstItem="XMy-Au-IkM" firstAttribute="top" secondItem="C2R-hq-MZ4" secondAttribute="top" id="nqj-QC-FKK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C2R-hq-MZ4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="wbV-CA-RRe">
@@ -313,11 +339,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Hvz-ST-Oxy"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="XMy-Au-IkM" id="7F0-xX-1Pf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1g-vN-njw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Dv4-LL-dbT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3539" y="76"/>
+            <point key="canvasLocation" x="3537.68115942029" y="75.669642857142847"/>
         </scene>
         <!--Item-->
         <scene sceneID="vui-6m-CCZ">

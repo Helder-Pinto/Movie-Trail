@@ -11,6 +11,8 @@
 		18300C58224ED51100138D96 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18300C57224ED51100138D96 /* SecondViewController.swift */; };
 		18523E1122502DB500D37710 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18523E1022502DB500D37710 /* SearchViewController.swift */; };
 		1881A7A5227AFFF2009BAC27 /* movieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881A7A4227AFFF2009BAC27 /* movieModel.swift */; };
+		18B03220227B972200E3C3E8 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0321F227B972200E3C3E8 /* GenreViewController.swift */; };
+		18B03222227B985000E3C3E8 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B03221227B985000E3C3E8 /* Genres.swift */; };
 		18DE80622258D48B004C2448 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE80612258D48B004C2448 /* MyListViewController.swift */; };
 		18DE80682258F2FF004C2448 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */; };
 		446E5C514F4AC2543D7DF8BE /* Pods_MovieTrail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7225F0B1391ABBB6328B41BC /* Pods_MovieTrail.framework */; };
@@ -46,6 +48,8 @@
 		18300C57224ED51100138D96 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		18523E1022502DB500D37710 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1881A7A4227AFFF2009BAC27 /* movieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieModel.swift; sourceTree = "<group>"; };
+		18B0321F227B972200E3C3E8 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		18B03221227B985000E3C3E8 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		18DE80612258D48B004C2448 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 		18DE80672258F2FF004C2448 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		21676C9D0F1273ED4D5E6FFA /* Pods_MovieTrailTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieTrailTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E7AAD7AF224E5238009F331B /* MoviesViewController.swift */,
+				18B0321F227B972200E3C3E8 /* GenreViewController.swift */,
 				18300C57224ED51100138D96 /* SecondViewController.swift */,
 				18523E1022502DB500D37710 /* SearchViewController.swift */,
 				18DE80612258D48B004C2448 /* MyListViewController.swift */,
@@ -135,6 +140,7 @@
 				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
 				1881A7A4227AFFF2009BAC27 /* movieModel.swift */,
 				18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */,
+				18B03221227B985000E3C3E8 /* Genres.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -450,12 +456,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1881A7A5227AFFF2009BAC27 /* movieModel.swift in Sources */,
+				18B03222227B985000E3C3E8 /* Genres.swift in Sources */,
 				18DE80682258F2FF004C2448 /* DataModel.xcdatamodeld in Sources */,
 				18523E1122502DB500D37710 /* SearchViewController.swift in Sources */,
 				18300C58224ED51100138D96 /* SecondViewController.swift in Sources */,
 				E7AAD7B0224E5238009F331B /* MoviesViewController.swift in Sources */,
 				E7AAD7DE224E7AF1009F331B /* DataCollectionViewCell.swift in Sources */,
 				18DE80622258D48B004C2448 /* MyListViewController.swift in Sources */,
+				18B03220227B972200E3C3E8 /* GenreViewController.swift in Sources */,
 				E7AAD7AE224E5238009F331B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
