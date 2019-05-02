@@ -12,13 +12,16 @@ import SwiftyJSON
 import AlamofireImage
 
 
-class ViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, CanReceive  {
+class MoviesViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, CanReceive  {
     
     //Variables
   
     let MOVIE_URL = "https://api.themoviedb.org/3/discover/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
-  
     var movieData = [[String: AnyObject]]()
+    
+    
+    var movies = [Movies]()
+    
     
     //IBoutlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -60,6 +63,10 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
             }
         }
     }
+    
+
+    //Get Pages
+   
     
     
     
