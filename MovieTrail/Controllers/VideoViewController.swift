@@ -16,6 +16,7 @@ class VideoViewController: UIViewController {
     
     //Outlets
    
+    @IBOutlet weak var videoNotLbl: UILabel!
     @IBOutlet weak var videoPlayer: YouTubePlayerView!
     @IBOutlet weak var movieTitleField: UILabel!
     @IBOutlet weak var moviePosterField: UIImageView!
@@ -42,6 +43,7 @@ class VideoViewController: UIViewController {
         movieTitleField.text = movieTitle
         movieOverview.text = movieOverviewText
         miniPoster()
+        videoNotLbl.isHidden = true
        
        
         }
@@ -62,13 +64,19 @@ class VideoViewController: UIViewController {
                     do{
                         let youtubeID = try JSONDecoder().decode(Vresponse.self, from: data)
                         self.videos = youtubeID.results
-                        print(self.videos[0].key)
-                        let vidUrl = URL(string: "https://www.youtube.com/watch?v=" + self.videos[0].key)!
+                        if self.videos.count > 0 {
+                             let vidUrl = URL(string: "https://www.youtube.com/watch?v=" + self.videos[0].key)!
+                            DispatchQueue.main.async {
+                                self.videoPlayer.loadVideoURL(vidUrl)
+                            }
+                        }else {
+                            print("sdsdsd")
+                            DispatchQueue.main.async {
+                                   self.videoNotLbl.isHidden = false
+                            }
                         
-                        
-                       DispatchQueue.main.async {
-                        self.videoPlayer.loadVideoURL(vidUrl)
-                       }
+                        }
+                   
                     }catch {
                         print("something went wrong")
                     }

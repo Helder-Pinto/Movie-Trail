@@ -55,13 +55,12 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="ln9-UM-hlr">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="ln9-UM-hlr" customClass="MoCollectionReusableView" customModule="MovieTrail" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqA-aT-iJf">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqA-aT-iJf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRn-vv-W44">
                                                     <rect key="frame" x="15" y="8" width="158" height="37"/>
@@ -79,15 +78,31 @@
                                                         <segue destination="NJW-U3-DW5" kind="presentation" id="Uv9-Lb-hGy"/>
                                                     </connections>
                                                 </button>
-                                                <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search movie" translatesAutoresizingMaskIntoConstraints="NO" id="l7R-95-yYZ">
-                                                    <rect key="frame" x="0.0" y="45" width="414" height="56"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search movie" translatesAutoresizingMaskIntoConstraints="NO" id="l7R-95-yYZ">
+                                                    <rect key="frame" x="0.0" y="46" width="414" height="56"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="9Gy-BN-w2q"/>
+                                                    </connections>
                                                 </searchBar>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="l7R-95-yYZ" firstAttribute="leading" secondItem="rqA-aT-iJf" secondAttribute="leading" id="Ci2-ys-Zxv"/>
+                                                <constraint firstAttribute="bottom" secondItem="l7R-95-yYZ" secondAttribute="bottom" id="Mjd-AP-1dX"/>
+                                                <constraint firstAttribute="trailing" secondItem="l7R-95-yYZ" secondAttribute="trailing" id="WLl-0x-XeP"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rqA-aT-iJf" firstAttribute="top" secondItem="ln9-UM-hlr" secondAttribute="top" id="4ne-ac-fhG"/>
+                                        <constraint firstAttribute="bottom" secondItem="rqA-aT-iJf" secondAttribute="bottom" id="9Lw-Ci-RK9"/>
+                                        <constraint firstAttribute="trailing" secondItem="rqA-aT-iJf" secondAttribute="trailing" id="Bay-v6-c0b"/>
+                                        <constraint firstItem="rqA-aT-iJf" firstAttribute="leading" secondItem="ln9-UM-hlr" secondAttribute="leading" id="oZG-G5-wwe"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="searchField" destination="l7R-95-yYZ" id="nlI-6V-xZ0"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="sL6-cr-APN"/>
@@ -128,7 +143,7 @@
         <scene sceneID="pQg-ge-gSp">
             <objects>
                 <tableViewController storyboardIdentifier="myListVC" title="My List" id="zBL-HW-PQ1" customClass="MyListViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="To8-n5-CPc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="To8-n5-CPc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,18 +157,19 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyListCell" id="Lk3-Pf-rqW" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lk3-Pf-rqW" id="5Vo-3r-kYq">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPZ-hn-d0G">
-                                            <rect key="frame" x="16" y="-1" width="38" height="44"/>
+                                            <rect key="frame" x="16" y="-1" width="65" height="76"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -175,7 +191,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4E-9L-VdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="1576"/>
+            <point key="canvasLocation" x="2518.840579710145" y="1575.6696428571429"/>
         </scene>
         <!--Trailer-->
         <scene sceneID="wNv-DG-wPx">
@@ -217,6 +233,16 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rV-SW-Abj" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                                 <rect key="frame" x="0.0" y="169" width="414" height="233"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="❌ Trailer Not Available " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGx-Az-8N8">
+                                        <rect key="frame" x="110" y="92" width="194" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.56898126140000005" green="0.98375847039999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6rV-SW-Abj" secondAttribute="height" multiplier="16:9" id="4ll-Bv-vHZ"/>
@@ -256,56 +282,13 @@
                         <outlet property="movieOverview" destination="nC2-mN-udQ" id="1RW-rG-ciE"/>
                         <outlet property="moviePosterField" destination="YdC-nA-Ppd" id="KWj-Ci-1Gt"/>
                         <outlet property="movieTitleField" destination="Saw-sS-wgJ" id="S4w-sv-dCa"/>
+                        <outlet property="videoNotLbl" destination="xGx-Az-8N8" id="yuj-lR-31H"/>
                         <outlet property="videoPlayer" destination="6rV-SW-Abj" id="kVH-ti-QUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7l-7D-r0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3537.68115942029" y="795.53571428571422"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="qSw-Bl-pOM">
-            <objects>
-                <viewController storyboardIdentifier="SearchViewController" title="Search" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0y6-hm-azT" customClass="SearchViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="p8E-ns-ymP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green-book_5414_852x1608" translatesAutoresizingMaskIntoConstraints="NO" id="sxr-tR-5aR" customClass="S">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20330784569999999" green="0.0" blue="0.04353398663" alpha="0.95974864130000004" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" barStyle="black" searchBarStyle="minimal" placeholder="Search movie" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7F-Da-Vh9">
-                                <rect key="frame" x="26" y="305" width="361" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.23728345788043478" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYi-9G-meb">
-                                <rect key="frame" x="126" y="368" width="123" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.20330784574468086" green="0.0" blue="0.043533986626489336" alpha="0.95974864130434778" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchTapped:" destination="0y6-hm-azT" eventType="touchUpInside" id="YNR-jb-qhF"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.53474069148936176" green="0.0" blue="0.052637566386856779" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="ZfU-5r-3E1"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="2CI-Z0-gbX"/>
-                    <connections>
-                        <outlet property="seachField" destination="S7F-Da-Vh9" id="JVB-Fb-gWW"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zao-nB-Kku" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1580" y="18"/>
         </scene>
         <!--Categories-->
         <scene sceneID="Ab2-3s-wTm">
@@ -418,7 +401,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="green-book_5414_852x1608" width="284" height="536"/>
         <image name="icons8-heart-outline-50" width="50" height="50"/>
     </resources>
 </document>

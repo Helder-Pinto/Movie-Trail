@@ -14,17 +14,22 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
     
     //Variables
     let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")!
-   
+    
+    
     var movies = [Movies]()
     
     //IBoutlets
     @IBOutlet weak var collectionView: UICollectionView!
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+      
+       
+
         
         //getMovieData(url: MOVIE_URL)
         fetchData(url: url)
@@ -62,8 +67,9 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
     //MARK: Collection View
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-        return headerView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as? MoCollectionReusableView
+       
+        return headerView!
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -126,6 +132,23 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
 //       // getMovieData(url: "https://api.themoviedb.org/3/search/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&query=\(movieSearchNoSpace)&page=1&include_adult=false&fbclid=IwAR1IStRWgwiRpnbkIbOl7KfqZTamu3slssZ1ezDgJAYY1VDDWkisweeYsBE")
 //        self.navigationController?.popViewController(animated: true)
 //    }
+
+extension MoviesViewController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        movies.removeAll()
+        
+        guard let movieToSearch = searchBar.text, !movieToSearch.isEmpty else {
+            return
+        }
+        
+        print("removed")
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("sdfsdfsdf")
+    }
+}
     
 
   

@@ -12,6 +12,8 @@
 		18523E1122502DB500D37710 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18523E1022502DB500D37710 /* SearchViewController.swift */; };
 		1881A7A5227AFFF2009BAC27 /* movieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881A7A4227AFFF2009BAC27 /* movieModel.swift */; };
 		188C6284227DCD50008B7215 /* videosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C6283227DCD50008B7215 /* videosModel.swift */; };
+		188C6286227E1E6E008B7215 /* MyListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C6285227E1E6E008B7215 /* MyListViewCell.swift */; };
+		188C6288227E4F51008B7215 /* MoCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C6287227E4F51008B7215 /* MoCollectionReusableView.swift */; };
 		18B03220227B972200E3C3E8 /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0321F227B972200E3C3E8 /* GenreViewController.swift */; };
 		18B03222227B985000E3C3E8 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B03221227B985000E3C3E8 /* Genres.swift */; };
 		18DE80622258D48B004C2448 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DE80612258D48B004C2448 /* MyListViewController.swift */; };
@@ -50,6 +52,8 @@
 		18523E1022502DB500D37710 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1881A7A4227AFFF2009BAC27 /* movieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieModel.swift; sourceTree = "<group>"; };
 		188C6283227DCD50008B7215 /* videosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videosModel.swift; sourceTree = "<group>"; };
+		188C6285227E1E6E008B7215 /* MyListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewCell.swift; sourceTree = "<group>"; };
+		188C6287227E4F51008B7215 /* MoCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoCollectionReusableView.swift; sourceTree = "<group>"; };
 		18B0321F227B972200E3C3E8 /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
 		18B03221227B985000E3C3E8 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
 		18DE80612258D48B004C2448 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				E7AAD7B1224E5238009F331B /* Main.storyboard */,
+				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
+				188C6287227E4F51008B7215 /* MoCollectionReusableView.swift */,
+				188C6285227E1E6E008B7215 /* MyListViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,7 +146,6 @@
 		18DE80652258EAF5004C2448 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				E7AAD7DD224E7AF1009F331B /* DataCollectionViewCell.swift */,
 				1881A7A4227AFFF2009BAC27 /* movieModel.swift */,
 				18DE80662258F2FF004C2448 /* DataModel.xcdatamodeld */,
 				18B03221227B985000E3C3E8 /* Genres.swift */,
@@ -460,12 +466,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188C6286227E1E6E008B7215 /* MyListViewCell.swift in Sources */,
 				1881A7A5227AFFF2009BAC27 /* movieModel.swift in Sources */,
 				18B03222227B985000E3C3E8 /* Genres.swift in Sources */,
 				18DE80682258F2FF004C2448 /* DataModel.xcdatamodeld in Sources */,
 				18523E1122502DB500D37710 /* SearchViewController.swift in Sources */,
 				18300C58224ED51100138D96 /* VideoViewController.swift in Sources */,
 				E7AAD7B0224E5238009F331B /* MoviesViewController.swift in Sources */,
+				188C6288227E4F51008B7215 /* MoCollectionReusableView.swift in Sources */,
 				E7AAD7DE224E7AF1009F331B /* DataCollectionViewCell.swift in Sources */,
 				18DE80622258D48B004C2448 /* MyListViewController.swift in Sources */,
 				18B03220227B972200E3C3E8 /* GenreViewController.swift in Sources */,

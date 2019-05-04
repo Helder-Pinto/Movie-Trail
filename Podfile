@@ -8,7 +8,7 @@ target 'MovieTrail' do
   # Pods for MovieTrail
 
     pod 'SwiftyJSON'
-    pod 'Alamofire'
+    
     pod 'SVProgressHUD'
     pod 'YouTubePlayer'
     pod 'AlamofireImage', '~> 3.5'

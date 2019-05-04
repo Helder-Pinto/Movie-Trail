@@ -8,7 +8,6 @@ PODS:
   - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
-  - Alamofire
   - AlamofireImage (~> 3.5)
   - SVProgressHUD
   - SwiftyJSON
@@ -32,6 +31,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: 4eada3884ab1bbae5e8d2fb9030c242aa23d7f42
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 4d4b3bc9bc928897fe9a19838b9e3dac3db2921a
+PODFILE CHECKSUM: dc839a457fea629766e7ae2d4d99cee0d4677610
 
 COCOAPODS: 1.6.1

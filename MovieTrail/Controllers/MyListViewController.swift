@@ -22,7 +22,7 @@ class MyListViewController: UITableViewController{
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         loadItems()
-        tableView.rowHeight = 80.0
+        tableView.rowHeight = 90.0
         
     }
     
