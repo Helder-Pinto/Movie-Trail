@@ -55,6 +55,7 @@ class GenreViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "genreCell", for: indexPath)
         let genre = genres[indexPath.row]
         cell.textLabel?.text = genre.name
+       
         return cell
         
     }

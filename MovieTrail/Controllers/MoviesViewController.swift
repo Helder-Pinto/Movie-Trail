@@ -97,15 +97,13 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
     
     
     //perform segue and send data to video section
-
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? SecondViewController
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as? VideoViewController
         let iP = movies[indexPath.row]
         secondVC?.movieTitle = iP.title!
         secondVC?.movieOverviewText = iP.overview!
-        
+        secondVC?.movieId = iP.id!
         secondVC?.movieFotoUrl = "https://image.tmdb.org/t/p/w200" + (iP.poster_path!)
     
         self.navigationController?.pushViewController(secondVC!, animated: true)

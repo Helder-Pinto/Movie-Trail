@@ -5,6 +5,7 @@ PODS:
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
   - SwipeCellKit (2.5.4)
+  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftyJSON
   - SwipeCellKit
+  - YouTubePlayer
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -20,6 +22,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftyJSON
     - SwipeCellKit
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -27,7 +30,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwipeCellKit: 4eada3884ab1bbae5e8d2fb9030c242aa23d7f42
+  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: ec1c41946ab6f3c33228ceb152f27ab39cd5e1d3
+PODFILE CHECKSUM: 4d4b3bc9bc928897fe9a19838b9e3dac3db2921a
 
 COCOAPODS: 1.6.1

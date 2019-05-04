@@ -74,7 +74,7 @@
                                                     <rect key="frame" x="316" y="20" width="90" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <state key="normal" title="Categories"/>
+                                                    <state key="normal" title="Genres"/>
                                                     <connections>
                                                         <segue destination="NJW-U3-DW5" kind="presentation" id="Uv9-Lb-hGy"/>
                                                     </connections>
@@ -180,7 +180,7 @@
         <!--Trailer-->
         <scene sceneID="wNv-DG-wPx">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" title="Trailer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hr7-xf-2uv" customClass="SecondViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" title="Trailer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hr7-xf-2uv" customClass="VideoViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RuQ-Am-bU9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,16 +215,27 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YdC-nA-Ppd">
                                 <rect key="frame" x="20" y="485" width="90" height="128"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rV-SW-Abj" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="169" width="414" height="233"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6rV-SW-Abj" secondAttribute="height" multiplier="16:9" id="4ll-Bv-vHZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6rV-SW-Abj" firstAttribute="trailing" secondItem="IlY-5r-Ve7" secondAttribute="trailing" id="5H0-bz-PUl"/>
+                            <constraint firstItem="6rV-SW-Abj" firstAttribute="centerX" secondItem="RuQ-Am-bU9" secondAttribute="centerX" id="7J8-KY-YQY"/>
                             <constraint firstItem="nC2-mN-udQ" firstAttribute="leading" secondItem="YdC-nA-Ppd" secondAttribute="trailing" constant="8" id="ER6-eC-rG4"/>
                             <constraint firstItem="nC2-mN-udQ" firstAttribute="leading" secondItem="Z07-zA-5Nj" secondAttribute="trailing" constant="28" id="EuN-l2-Xo3"/>
                             <constraint firstItem="Saw-sS-wgJ" firstAttribute="top" secondItem="IlY-5r-Ve7" secondAttribute="top" constant="19" id="GeU-VQ-Hqk"/>
                             <constraint firstItem="IlY-5r-Ve7" firstAttribute="bottom" secondItem="nC2-mN-udQ" secondAttribute="bottom" constant="69" id="RmH-1z-cq3"/>
                             <constraint firstItem="IlY-5r-Ve7" firstAttribute="bottom" secondItem="Z07-zA-5Nj" secondAttribute="bottom" constant="151" id="SNz-9l-F9c"/>
+                            <constraint firstItem="6rV-SW-Abj" firstAttribute="leading" secondItem="IlY-5r-Ve7" secondAttribute="leading" id="b1O-Y5-4HS"/>
                             <constraint firstItem="YdC-nA-Ppd" firstAttribute="leading" secondItem="IlY-5r-Ve7" secondAttribute="leading" constant="20" id="cBz-0u-AHc"/>
                             <constraint firstItem="Saw-sS-wgJ" firstAttribute="leading" secondItem="RuQ-Am-bU9" secondAttribute="leadingMargin" id="ecA-6A-U5S"/>
+                            <constraint firstItem="6rV-SW-Abj" firstAttribute="top" secondItem="Saw-sS-wgJ" secondAttribute="bottom" constant="25" id="fB9-IX-Ct3"/>
                             <constraint firstItem="IlY-5r-Ve7" firstAttribute="trailing" secondItem="nC2-mN-udQ" secondAttribute="trailing" constant="5" id="gq4-vY-PMD"/>
                             <constraint firstItem="nC2-mN-udQ" firstAttribute="top" secondItem="YdC-nA-Ppd" secondAttribute="top" id="kjS-iV-tVJ"/>
                             <constraint firstItem="nC2-mN-udQ" firstAttribute="leading" secondItem="YdC-nA-Ppd" secondAttribute="trailing" constant="8" id="qux-pM-PLi"/>
@@ -245,11 +256,12 @@
                         <outlet property="movieOverview" destination="nC2-mN-udQ" id="1RW-rG-ciE"/>
                         <outlet property="moviePosterField" destination="YdC-nA-Ppd" id="KWj-Ci-1Gt"/>
                         <outlet property="movieTitleField" destination="Saw-sS-wgJ" id="S4w-sv-dCa"/>
+                        <outlet property="videoPlayer" destination="6rV-SW-Abj" id="kVH-ti-QUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7l-7D-r0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3538" y="796"/>
+            <point key="canvasLocation" x="3537.68115942029" y="795.53571428571422"/>
         </scene>
         <!--Search-->
         <scene sceneID="qSw-Bl-pOM">
