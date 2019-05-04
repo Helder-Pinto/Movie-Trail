@@ -47,6 +47,11 @@ class MyListViewController: UITableViewController{
         
         cell.textLabel?.text = item.title
             cell.delegate = self
+
+        cell.imageView?.image = UIImage(data: item.image!)
+        
+        
+        
         
         cell.accessoryType = item.watched ? .checkmark : .none
         

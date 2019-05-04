@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+import AlamofireImage
 import CoreData
 import YouTubePlayer
 
@@ -26,6 +26,7 @@ class VideoViewController: UIViewController {
     //var myMoviesArray2 = [Item]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var imgData: Data?
     var movieId: Int!
     var movieTitle: String = ""
     var posterImage: UIImage!
@@ -77,26 +78,25 @@ class VideoViewController: UIViewController {
         task.resume()
     }
 
-  
-    
-    
-    
-    
-    
+    //Movie-Image
     func miniPoster (){
-        Alamofire.request(movieFotoUrl).responseImage(completionHandler: {
-            (response) in
-            if let image = response.result.value {
-                let size = CGSize(width: 140, height: 200)
-                let scaledImage = image.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 3.0)
+        DispatchQueue.global().async {
+            do{
+            let data = try Data(contentsOf: URL(string: self.movieFotoUrl)!)
+            let image = UIImage(data: data)
+            let size = CGSize(width: 140, height: 200)
+            let scaledImage = image?.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 4.0)
+            self.imgData = scaledImage?.jpegData(compressionQuality: 1)
                 DispatchQueue.main.async {
                     self.moviePosterField.image = scaledImage
-                    //print(scaledImage)
-                }
             }
-        })
-        }
-    //MARK prepare and send data to mylist
+                }catch {
+            print("error getting image")
+            }
+    }
+    
+      }
+    //MARK: add movie to mylist
     
     @IBAction func addFavsButton(_ sender: Any) {
         
@@ -104,41 +104,17 @@ class VideoViewController: UIViewController {
         
         newItem.title = movieTitle
         newItem.watched = false
-      //  newItem.posterUrl = movieFotoUrl
-        
-        
-        //myMoviesArray2.append(newItem)
-        
-       // func saveItems(){
-            
+        newItem.image = imgData
+        print(imgData)
             do{
                 try context.save()
             } catch{
                 print("Erro saving context \(error)")
-                
             }
-            
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "myListVC") as! MyListViewController
+          let alert = UIAlertController(title: "✅", message: "Movie Added To List", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
         
-       
-        
-        self.present(vc, animated: true, completion: nil)
-        
-      //  }
-        
-       // performSegue(withIdentifier: "goToList", sender: self)
-        
-        
+        self.present(alert, animated: true, completion: nil)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToList" {
-//
-//            let myListVC = segue.destination as! MyListViewController
-//
-//
-//
-//        }
-//
-//    }
+
 }
