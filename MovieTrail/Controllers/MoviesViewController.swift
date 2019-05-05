@@ -14,9 +14,11 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
     
     //Variables
     let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1")!
-    
-    
     var movies = [Movies]()
+    let searchController =  UISearchController(searchResultsController: nil)
+     private var previousRun =  Date()
+    private let minInterval = 0.05
+    
     
     //IBoutlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -83,20 +85,24 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
         cell?.label.text = movie.title
         
         //get images from url
-        let imageUrl = URL(string: "https://image.tmdb.org/t/p/w200" + movie.poster_path!)
-        DispatchQueue.global().async {
-            do{
-                let data = try Data(contentsOf: imageUrl!)
-                let image = UIImage(data: data)
-                let size = CGSize(width: 140, height: 200)
-                let scaledImage = image?.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 4.0)
-                DispatchQueue.main.async {
-                    cell?.img.image = scaledImage
+        if movie.poster_path != nil {
+            let imageUrl = URL(string: "https://image.tmdb.org/t/p/w200" + movie.poster_path!)
+            DispatchQueue.global().async {
+                do{
+                    let data = try Data(contentsOf: imageUrl!)
+                    let image = UIImage(data: data)
+                    let size = CGSize(width: 140, height: 200)
+                    let scaledImage = image?.af_imageScaled(to:  size).af_imageRounded(withCornerRadius: 4.0)
+                    DispatchQueue.main.async {
+                        cell?.img.image = scaledImage
+                    }
+                }catch {
+                    print("error getting image")
                 }
-            }catch {
-                print("error getting image")
             }
         }
+    
+        
        
         return cell!
     }
@@ -124,16 +130,10 @@ class MoviesViewController: UIViewController, UICollectionViewDelegate , UIColle
 
     
     
-//    func dataReceived(data: String) {
-//
-//        let movieSearch = data
-//
-//        let movieSearchNoSpace = movieSearch.replacingOccurrences(of: " ", with: "%20")
-//       // getMovieData(url: "https://api.themoviedb.org/3/search/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&query=\(movieSearchNoSpace)&page=1&include_adult=false&fbclid=IwAR1IStRWgwiRpnbkIbOl7KfqZTamu3slssZ1ezDgJAYY1VDDWkisweeYsBE")
-//        self.navigationController?.popViewController(animated: true)
-//    }
+
 
 extension MoviesViewController: UISearchBarDelegate{
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         movies.removeAll()
@@ -141,13 +141,30 @@ extension MoviesViewController: UISearchBarDelegate{
         guard let movieToSearch = searchBar.text, !movieToSearch.isEmpty else {
             return
         }
-        
-        print("removed")
+        if Date().timeIntervalSince(previousRun) > minInterval {
+            previousRun = Date()
+            fetchResults(for: movieToSearch)
+            
+        }
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("sdfsdfsdf")
-    }
+    
+    
+    
+        func fetchResults(for text: String) {
+            
+            let movieSearch = text
+    
+            let movieSearchNoSpace = movieSearch.replacingOccurrences(of: " ", with: "%20")
+            let searchUrl = URL(string: "https://api.themoviedb.org/3/search/movie?api_key=0abf1befdf259f8b383017249ba19a9a&language=en-US&query=\(movieSearchNoSpace)&page=1&include_adult=false&fbclid=IwAR1IStRWgwiRpnbkIbOl7KfqZTamu3slssZ1ezDgJAYY1VDDWkisweeYsBE")!
+          
+            self.fetchData(url: searchUrl)
+            
+            
+            
+          
+        }
+    
 }
     
 

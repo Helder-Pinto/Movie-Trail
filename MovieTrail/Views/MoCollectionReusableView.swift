@@ -12,7 +12,7 @@ import UIKit
 
 class MoCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var searchField: UISearchBar!
-    
+     
   
     
 }
