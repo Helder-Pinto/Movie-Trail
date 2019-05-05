@@ -15,13 +15,17 @@ class MyListViewController: UITableViewController{
      var myMoviesArray = [Item]()
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadItems()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-        loadItems()
+        //loadItems()
         tableView.rowHeight = 90.0
         
     }

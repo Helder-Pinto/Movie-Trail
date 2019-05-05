@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QKu-L0-inT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4uO-1p-SZQ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MoviesViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoviesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MoviesViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,7 +119,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2518.840579710145" y="796.20535714285711"/>
+            <point key="canvasLocation" x="4339.130434782609" y="796.20535714285711"/>
+        </scene>
+        <!--Launch View Controller-->
+        <scene sceneID="o7u-6V-k5P">
+            <objects>
+                <viewController id="4uO-1p-SZQ" customClass="LaunchViewController" customModule="MovieTrail" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="L22-mX-kzy"/>
+                    <connections>
+                        <segue destination="QKu-L0-inT" kind="show" identifier="launch" id="UCS-iP-8ZB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lqD-mm-JGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621.73913043478262" y="1184.5982142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UvP-xv-lv6">
@@ -137,7 +150,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8S-BV-wiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="617" y="1185"/>
+            <point key="canvasLocation" x="1526.0869565217392" y="1184.5982142857142"/>
         </scene>
         <!--My List-->
         <scene sceneID="pQg-ge-gSp">
@@ -191,7 +204,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4E-9L-VdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2518.840579710145" y="1575.6696428571429"/>
+            <point key="canvasLocation" x="3428.985507246377" y="1575.6696428571429"/>
         </scene>
         <!--Trailer-->
         <scene sceneID="wNv-DG-wPx">
@@ -288,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a7l-7D-r0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3537.68115942029" y="795.53571428571422"/>
+            <point key="canvasLocation" x="5357.971014492754" y="795.53571428571422"/>
         </scene>
         <!--Categories-->
         <scene sceneID="Ab2-3s-wTm">
@@ -341,7 +354,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1g-vN-njw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Dv4-LL-dbT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3537.68115942029" y="75.669642857142847"/>
+            <point key="canvasLocation" x="4447.826086956522" y="75.669642857142847"/>
         </scene>
         <!--Item-->
         <scene sceneID="vui-6m-CCZ">
@@ -360,7 +373,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTQ-n0-Jw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="796.55172413793105"/>
+            <point key="canvasLocation" x="3400.0000000000005" y="796.20535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="10W-xD-ymL">
@@ -379,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ltb-SN-RH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1580" y="1576"/>
+            <point key="canvasLocation" x="2489.8550724637685" y="1575.6696428571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aJh-67-K8w">
@@ -397,7 +410,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wm-Rw-8dE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="76"/>
+            <point key="canvasLocation" x="3428.985507246377" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>

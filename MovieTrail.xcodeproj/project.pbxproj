@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		10DDA7493BB1A7E9DC49DDFF /* Pods_MovieTrailTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21676C9D0F1273ED4D5E6FFA /* Pods_MovieTrailTests.framework */; };
+		182C31F1227EE2C100803CD1 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182C31F0227EE2C100803CD1 /* LaunchViewController.swift */; };
 		18300C58224ED51100138D96 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18300C57224ED51100138D96 /* VideoViewController.swift */; };
 		18523E1122502DB500D37710 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18523E1022502DB500D37710 /* SearchViewController.swift */; };
+		18540999227EF3C9005D3CE3 /* movie-trax introvid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 18540998227EF3C9005D3CE3 /* movie-trax introvid.mp4 */; };
 		1881A7A5227AFFF2009BAC27 /* movieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881A7A4227AFFF2009BAC27 /* movieModel.swift */; };
 		188C6284227DCD50008B7215 /* videosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C6283227DCD50008B7215 /* videosModel.swift */; };
 		188C6286227E1E6E008B7215 /* MyListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188C6285227E1E6E008B7215 /* MyListViewCell.swift */; };
@@ -48,8 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182C31F0227EE2C100803CD1 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		18300C57224ED51100138D96 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		18523E1022502DB500D37710 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		18540998227EF3C9005D3CE3 /* movie-trax introvid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "movie-trax introvid.mp4"; path = "MovieTrail/Supporting files/Assets.xcassets/movie-traxVIdeo.dataset/movie-trax introvid.mp4"; sourceTree = "<group>"; };
 		1881A7A4227AFFF2009BAC27 /* movieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movieModel.swift; sourceTree = "<group>"; };
 		188C6283227DCD50008B7215 /* videosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = videosModel.swift; sourceTree = "<group>"; };
 		188C6285227E1E6E008B7215 /* MyListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				E7AAD7AF224E5238009F331B /* MoviesViewController.swift */,
 				18300C57224ED51100138D96 /* VideoViewController.swift */,
 				18B0321F227B972200E3C3E8 /* GenreViewController.swift */,
+				182C31F0227EE2C100803CD1 /* LaunchViewController.swift */,
 				18523E1022502DB500D37710 /* SearchViewController.swift */,
 				18DE80612258D48B004C2448 /* MyListViewController.swift */,
 			);
@@ -167,6 +172,7 @@
 		E7AAD7A1224E5238009F331B = {
 			isa = PBXGroup;
 			children = (
+				18540998227EF3C9005D3CE3 /* movie-trax introvid.mp4 */,
 				E7AAD7AC224E5238009F331B /* MovieTrail */,
 				E7AAD7C1224E5243009F331B /* MovieTrailTests */,
 				E7AAD7CC224E5243009F331B /* MovieTrailUITests */,
@@ -338,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18540999227EF3C9005D3CE3 /* movie-trax introvid.mp4 in Resources */,
 				E7AAD7B8224E5242009F331B /* LaunchScreen.storyboard in Resources */,
 				E7AAD7B5224E5242009F331B /* Assets.xcassets in Resources */,
 				E7AAD7B3224E5238009F331B /* Main.storyboard in Resources */,
@@ -471,6 +478,7 @@
 				18B03222227B985000E3C3E8 /* Genres.swift in Sources */,
 				18DE80682258F2FF004C2448 /* DataModel.xcdatamodeld in Sources */,
 				18523E1122502DB500D37710 /* SearchViewController.swift in Sources */,
+				182C31F1227EE2C100803CD1 /* LaunchViewController.swift in Sources */,
 				18300C58224ED51100138D96 /* VideoViewController.swift in Sources */,
 				E7AAD7B0224E5238009F331B /* MoviesViewController.swift in Sources */,
 				188C6288227E4F51008B7215 /* MoCollectionReusableView.swift in Sources */,
